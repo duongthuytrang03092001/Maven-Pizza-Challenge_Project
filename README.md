@@ -44,6 +44,13 @@ This dataset contains 4 tables in CSV format_
 |    pizza_types	|category	|Category that the pizza fall under in the menu (Classic, Chicken, Supreme, or Veggie) |
 |    pizza_types	|ingredients	|Comma-delimited ingredients used in the pizza as shown in the menu (they all include Mozzarella Cheese, even if not specified; and they all include Tomato Sauce, unless another sauce is specified)  |
 
-
+#Project Overview:
+- The purpose of the analysis: Analyze the pizza business project to shed light on the following questions:
++ What days and times do we tend to be busiest?
++ How many pizzas are we making during peak periods?
++ What are our best and worst-selling pizzas?
++ What's our average order value?
+==> The insights you aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp the advantages of the store to make suggestions to help promote store development, product consumption and increase store revenue.
+ .
 
 
