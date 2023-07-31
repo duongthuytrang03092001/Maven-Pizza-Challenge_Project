@@ -50,6 +50,7 @@ This dataset contains 4 tables in CSV format_
 + How many pizzas are we making during peak periods?
 + What are our best and worst-selling pizzas?
 + What's our average order value?
+  
 ==> The insights you aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp the advantages of the store to make suggestions to help promote store development, product consumption and increase store revenue.
  .
 
