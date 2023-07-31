@@ -8,7 +8,7 @@ I. Work with data
    - Data type conversions
    - And any necessary data preprocessing
 2. Create a Tidy Date: To connect with Order Table by DAX for Table 
-*Code: 
+*DAX Syntax: 
 
 "Tidy Date = 
 ADDCOLUMNS(
@@ -26,7 +26,7 @@ ADDCOLUMNS(
 3. Create a entity relationship diagram (ERD)
 
 
-
+4. 
 
 
 
