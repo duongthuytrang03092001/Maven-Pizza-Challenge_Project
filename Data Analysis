@@ -1,1 +1,37 @@
-1. Work with data
+I. Work with data
+
+#Data Cleaning and Transformation
+
+1. Use Power Query Editor in Power BI to clean and transform the data as needed
+   - Handle missing values
+   - Delete duplicates rows
+   - Data type conversions
+   - And any necessary data preprocessing
+2. Create a Tidy Date: To connect with Order Table by DAX for Table 
+*Code: 
+
+"Tidy Date = 
+ADDCOLUMNS(
+    CALENDAR(FIRSTDATE(orders[date]),LASTDATE(orders[date])),
+"Year", year([Date]),
+"Quater",  FORMAT([Date],"\QQ"),
+"Month_num", MONTH([Date]),
+"Month_name", FORMAT([Date], "mmmm"),
+"Week_Num", WEEKNUM([Date]),
+"Day_Month_Num", DAY([Date]),
+"Day_Week_Name", FORMAT([Date],"dddd"),
+"Week_Month", "W" & (WEEKNUM([Date]) - WEEKNUM(DATE(YEAR([Date]), MONTH([Date]), 1)) + 1)
+)" 
+
+3. Create a entity relationship diagram (ERD)
+
+
+
+
+
+
+
+
+
+
+
