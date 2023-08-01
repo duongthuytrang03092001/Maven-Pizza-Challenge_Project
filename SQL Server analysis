@@ -1,0 +1,175 @@
+
+--- DATA: Maven Pizza Challenge, from "https://mavenanalytics.io/blog/maven-pizza-challenge" 
+
+-- About the dataset
+
+-----*This dataset contains 4 tables in CSV format
+-------*\The Orders table: contains the date & time that all table orders were placed
+-------*\The Order Details: table contains the different pizzas served with each order in the Orders table, and their quantities
+-------*\The Pizzas table: contains the size and price for each distinct pizza in the Order Details table, as well as its broader pizza type
+-------*\The Pizza Types table: contains details on the pizza types in the Pizzas table, including their name as it appears on the menu, the category it falls under, and its list of ingredients
+
+
+select *from order_details;
+select *from orders;
+select *from pizzas;
+select *from pizza_types;
+
+
+---1. Total Annual Sales in 2015 : 817860$ - Average price of a order: 16$
+
+select 
+    CONVERT(int,  sum (price *quantity) )as Revenue 
+from order_details OD 
+join pizzas P 
+on OD.pizza_id = p.pizza_id;
+
+
+select 
+    CONVERT(int,  avg (price *quantity) )as avg_revenue_orders
+from order_details OD 
+join pizzas P 
+on OD.pizza_id = p.pizza_id;
+
+---2.total orders in 2015 :  sold 21350 orders
+
+select COUNT (order_id) as total_orders
+from orders;
+
+--3. total pizzas sold in 2015:  sold 49574 pizzas
+
+select sum ( convert ( int,quantity)) as total_sold
+from order_details;
+
+--4. Average price of a pizza: 16.44$ - Cheapest pizza price: 9.75$ - The most expensive pizza: 35.95$
+
+select 
+avg (price) as avg_price,
+min (price) as min_price,
+max (price) as max_price
+from pizzas;
+
+-- 5  *\ Least popular pizza is Brie Carre with only 490 pieces sold in a year
+
+select top 5
+name as pizza_name,
+ sum (convert(int,quantity) )as total_sold,
+  CONVERT(int,  sum (price *quantity) )as Revenue 
+from order_details OD
+join pizzas P
+on OD.pizza_id= P.pizza_id
+join pizza_types PT on P.pizza_type_id = PT.pizza_type_id
+group by name 
+order by total_sold asc;
+
+---*\ The best selling pizza is Classic Deluxe with 2453 pieces sold in a year
+
+select top 5
+name as pizza_name,
+ sum (convert(int,quantity) )as total_sold,
+ CONVERT(int,  sum (price *quantity) )as Revenue 
+from order_details OD
+join pizzas P
+on OD.pizza_id= P.pizza_id
+join pizza_types PT on P.pizza_type_id = PT.pizza_type_id
+group by name 
+order by total_sold  desc;
+
+
+--- 7. The most preferred pizza size is L 18956 pizzas with this size
+
+select 
+P.size ,
+ sum (convert(int,quantity) )as total_sold
+from order_details OD
+join pizzas P
+on OD.pizza_id= P.pizza_id
+join pizza_types PT 
+on P.pizza_type_id = PT.pizza_type_id
+group by size
+order by size asc;
+
+---8. using LAG to compare this day's sales to last day's.
+   
+      /* Find the number of orders in a day */ - /* Compare this day's sales to last day's */
+
+WITH day_orders AS (
+SELECT
+month (O.date) as months,
+day (O.date) AS dayss,
+COUNT(DISTINCT order_id) AS num_orders
+FROM orders O
+GROUP BY month (O.date), day(O.date) 
+ 
+) 
+SELECT
+   *,
+LAG(num_orders) OVER (ORDER BY dayss) AS last_day_order,
+LAG(num_orders) OVER (ORDER BY dayss) - num_orders AS diff_from_last_days
+FROM day_orders
+order by months asc;
+
+--9. Revenue by month: Highest sales is recorded in July at $70640
+
+SELECT
+    DATEPART(year, O.date) AS year,
+    DATEPART(month, O.date) AS month,
+    SUM(convert(int, OD.quantity * price)) AS revenue
+FROM
+order_details OD
+JOIN orders O ON OD.order_id = O.order_id
+Join pizzas P ON P.pizza_id = OD.pizza_id
+GROUP BY
+    DATEPART(year, O.date),
+    DATEPART(month, O.date)
+ORDER BY month ;
+
+ --10.  month sold the most: October, September and December
+
+ SELECT
+    DATEPART(year, O.date) AS year,
+    DATEPART(month, O.date) AS month,
+	 DATEPART(week, O.date) AS week,
+    SUM(convert(int, OD.quantity )) AS Sold
+FROM
+order_details OD
+JOIN orders O ON OD.order_id = O.order_id
+Join pizzas P ON P.pizza_id = OD.pizza_id
+GROUP BY
+    DATEPART(year, O.date),
+    DATEPART(month, O.date),
+	DATEPART(week, O.date)
+ORDER BY Sold ;
+
+
+ ---11. Revenue by week
+
+ WITH weekly_revenue AS (
+    SELECT
+        DATEPART(year, O.date) AS years,
+        DATEPART(month, O.date) AS months,
+        DENSE_RANK() OVER (PARTITION BY DATEPART(year, O.date), DATEPART(month, O.date) ORDER BY DATEPART(week, O.date)) AS weeks,
+        SUM(CONVERT(INT, OD.quantity) * P.price) AS Sold
+    FROM
+        order_details OD
+    JOIN orders O ON OD.order_id = O.order_id
+    JOIN pizzas P ON P.pizza_id = OD.pizza_id
+    GROUP BY
+        DATEPART(year, O.date),
+        DATEPART(month, O.date),
+        DATEPART(week, O.date),
+        DATEADD(week, DATEDIFF(week, 0, O.date), 0)
+)
+SELECT
+    years,
+    months,
+    weeks,
+    SUM(Sold) AS total_revenue
+FROM
+    weekly_revenue
+GROUP BY
+    years,
+    months,
+	weeks
+ORDER BY
+    years, months, weeks;
