@@ -27,7 +27,7 @@ ADDCOLUMNS(
 
 
 4. To answer the question posed to this data and to address the purpose of the project
-- The first: Use DAX of Power BI function to generate the results
+Use DAX of Power BI function to generate the results
 + Revenue = CALCULATE(SUMX(order_details,order_details[quantity]*RELATED(pizzas[price])))
 + Total sold = CALCULATE(SUM(order_details[quantity]))
 + Avg of Order = AVERAGEX(order_details,order_details[quantity]*RELATED(pizzas[price]))
@@ -41,8 +41,6 @@ ADDCOLUMNS(
                      "Sold ", CALCULATE(COUNT(order_details[quantity]))),
                      [Sold ] ,DESC)
 
-- The next step: Create Dashboard
-
 5. Answer Key Questions:
 
 + Friday is the best business day with total sales of 8.2k in the time frame 12:00 - 13:00 pm and 17:00-18:00.
@@ -54,7 +52,7 @@ number of favorite products and limit the unpopular products to meet customer ne
 maintain or improve the product according to the customer's tast
 + Recommendation: During non-meal times and product combinations that are not selling well, you can combine several offers and activities to attract customers.
 
-
+II. Create Dashboard by Power BI visualization
 
 
 
