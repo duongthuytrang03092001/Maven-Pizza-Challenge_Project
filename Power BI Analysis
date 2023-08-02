@@ -44,6 +44,11 @@ Use DAX of Power BI function to generate the results
 
 II. Create Dashboard by Power BI visualization
 
++ This report is for Product manager, Store Manager
++ Metrics: Revenue, Quantity, Price, ...
++ Dimension: Products Name, Products Category, Time by Month, Week Name, Hours,...
++ Visual: Card, Table with heat map, Bar chart, Column chart, Circle chart,...
+
  Answer Key Questions:
 + Friday is the best business day with total sales of 8.2k in the time frame 12:00 - 13:00 pm and 17:00-18:00.
 Because this is the customary lunch and dinner time frame. customer's habits, we should allocate staff and product
