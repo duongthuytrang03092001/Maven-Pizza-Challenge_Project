@@ -1,6 +1,6 @@
-I. Work with data
+# I. Work with data
 
-#Data Cleaning and Transformation
+Data Cleaning and Transformation
 
 1. Use Power Query Editor in Power BI to clean and transform the data as needed
    - Handle missing values
@@ -52,7 +52,7 @@ number of favorite products and limit the unpopular products to meet customer ne
 maintain or improve the product according to the customer's tast
 + Recommendation: During non-meal times and product combinations that are not selling well, you can combine several offers and activities to attract customers.
 
-II. Create Dashboard by Power BI visualization
+# II. Create Dashboard by Power BI visualization
 
 
 
