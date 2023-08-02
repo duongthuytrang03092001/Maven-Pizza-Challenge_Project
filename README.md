@@ -1,9 +1,16 @@
 # Project Name: "Maven Pizza Data Analysis Project: SQL & Power BI"
 Maven Pizza Challenge, analytics with SQL Server, Power BI
-# Specific skills and technologies used in the project: Data Cleaning by Power Query Editor, Power BI (DAX language) and Data Visualization in Power BI, SQL Server.
+
+# Specific skills and technologies used in the project
++ Data Cleaning by Power Query Editor
++ Power BI (DAX language)
++  Data Visualization in Power BI
++   SQL Server
+  
 # Introducing the Maven Pizza Challenge
 Link " https://mavenanalytics.io/blog/maven-pizza-challenge " 
-# Project Overview:
+
+# Project Overview
 - The purpose of the analysis: Analyze the pizza business project to shed light on the following questions:
 + What days and times do we tend to be busiest?
 + How many pizzas are we making during peak periods?
