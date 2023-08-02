@@ -1,8 +1,17 @@
-# Maven-Pizza-Challenge_Project
+# Project Name: "Maven Pizza Data Analysis Project: SQL & Power BI"
 Maven Pizza Challenge, analytics with SQL Server, Power BI
-
-Introducing the Maven Pizza Challenge
+# Specific skills and technologies used in the project: Data Cleaning by Power Query Editor, Power BI (DAX language) and Data Visualization in Power BI, SQL Server.
+# Introducing the Maven Pizza Challenge
 Link " https://mavenanalytics.io/blog/maven-pizza-challenge " 
+# Project Overview:
+- The purpose of the analysis: Analyze the pizza business project to shed light on the following questions:
++ What days and times do we tend to be busiest?
++ How many pizzas are we making during peak periods?
++ What are our best and worst-selling pizzas?
++ What's our average order value?
+  
+==> The insights you aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp
+the advantages of the store to make suggestions to help promote store development, product consumption and increase store revenue.
 
 **About the dataset**
 This dataset contains 4 tables in CSV format_
@@ -26,7 +35,7 @@ This dataset contains 4 tables in CSV format_
 |     order_details         | quantity             |    Quantity ordered for each pizza of the same type and size |
   
 
-3. The Pizzas tablecontains the size and price for each distinct pizza in the Order Details table, as well as its broader pizza type
+3. The Pizzas table contains the size and price for each distinct pizza in the Order Details table, as well as its broader pizza type
     
 |       Table       |      Field        | Description     |
 | :------------:|:-------------:|:-----:|
@@ -43,15 +52,5 @@ This dataset contains 4 tables in CSV format_
 |     pizza_types	|name|	Name of the pizza as shown in the menu  |
 |    pizza_types	|category	|Category that the pizza fall under in the menu (Classic, Chicken, Supreme, or Veggie) |
 |    pizza_types	|ingredients	|Comma-delimited ingredients used in the pizza as shown in the menu (they all include Mozzarella Cheese, even if not specified; and they all include Tomato Sauce, unless another sauce is specified)  |
-
-#Project Overview:
-- The purpose of the analysis: Analyze the pizza business project to shed light on the following questions:
-+ What days and times do we tend to be busiest?
-+ How many pizzas are we making during peak periods?
-+ What are our best and worst-selling pizzas?
-+ What's our average order value?
-  
-==> The insights you aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp the advantages of the store to make suggestions to help promote store development, product consumption and increase store revenue.
- .
 
 
