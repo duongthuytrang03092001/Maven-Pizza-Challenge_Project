@@ -1,6 +1,4 @@
 I. Work with data
-
-
 1. Data Cleaning and Transformation
 Use Power Query Editor in Power BI to clean and transform the data as needed
    - Handle missing values
@@ -29,10 +27,13 @@ ADDCOLUMNS(
 
 4. To answer the question posed to this data and to address the purpose of the project
 Use DAX of Power BI function to generate the results
+- Dax for Measure
 + Revenue = CALCULATE(SUMX(order_details,order_details[quantity]*RELATED(pizzas[price])))
 + Total sold = CALCULATE(SUM(order_details[quantity]))
 + Avg of Order = AVERAGEX(order_details,order_details[quantity]*RELATED(pizzas[price]))
 + Avg of Product = AVERAGEX(ALL(pizza_types),SUMX(RELATEDTABLE(order_details),order_details[quantity]*RELATED(pizzas[price])))
+
+-Dax for Table
 + Worst-selling = TOPN(5,
                 ADDCOLUMNS(VALUES(pizza_types[name]),
                      "Sold ", CALCULATE(COUNT(order_details[quantity]))),
