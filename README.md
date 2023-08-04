@@ -17,7 +17,7 @@ Link " https://mavenanalytics.io/blog/maven-pizza-challenge "
 + What are our best and worst-selling pizzas?
 + What's our average order value?
   
-==> The insights you aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp
+==> The insights the aim to gain from the dataset is to see the current situation of the store, understand the business situation and grasp
 the advantages of the store to make suggestions to help promote store development, product consumption and increase store revenue.
 
 **About the dataset**
